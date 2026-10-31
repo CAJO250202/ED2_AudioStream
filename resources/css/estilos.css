@@ -1,0 +1,111 @@
+
+:root {
+    --rosa: #f5d5e2;
+    --texto: #333333;
+    --fuente: 'Roboto', Arial, sans-serif;
+}
+
+body {
+    font-family: var(--fuente);
+    color: var(--texto);
+    background: linear-gradient(to right, #ffffff, #fceaf1);
+}
+
+header, footer {
+    background-color: var(--rosa);
+    padding: 20px;
+    text-align: center;
+}
+
+nav a {
+    margin: 8px;
+    color: #6d2444;
+}
+
+main {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+h1 {
+    font-size: 28px;
+}
+
+h2 {
+    font-size: 22px;
+}
+
+
+.paneles {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.paneles article {
+    background-color: white;
+    border: 1px solid #cccccc;
+    padding: 15px;
+    min-width: 0;
+}
+
+button {
+    background-color: var(--rosa);
+    color: var(--texto);
+    border: 1px solid #96536f;
+    padding: 6px;
+    margin-bottom: 5px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #e7afc6;
+}
+
+#portada {
+    display: block;
+    width: min(100%, 240px);
+    aspect-ratio: 1;
+    object-fit: contain;
+    margin: 0 auto 15px;
+}
+
+input, select {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+option {
+    padding: 5px;
+}
+
+#visualizador {
+    padding: 25px;
+    text-align: center;
+    background-color: #eeeeee;
+}
+
+
+#visualizador.activo {
+    background-color: var(--rosa);
+    animation: parpadear 1s infinite alternate;
+}
+
+@keyframes parpadear {
+    from { opacity: 1; }
+    to { opacity: 0.5; }
+}
+
+
+@media (max-width: 767px) {
+    .paneles {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #visualizador.activo {
+        animation: none;
+    }
+}

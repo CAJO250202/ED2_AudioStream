@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AudioStream Web</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="resources/css/estilos.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="src/reproductor.js" defer></script>
+</head>
+
+<body>
+    <header class="container">
+        <h1>AudioStream Web</h1>
+        <p>Mi reproductor de música</p>
+        <nav aria-label="Menú principal">
+            <a href="index.html">Inicio</a>
+
+            <a href="https://github.com/CAJO250202/ED2_AudioStream.git" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="row" aria-label="Presentación">
+            <article class="col-sm-12 col-md-8 col-lg-8">
+                <h2>Escucha tu música</h2>
+                <p>Selecciona una canción y presiona Reproducir.</p>
+            </article>
+            <article class="col-sm-12 col-md-4 col-lg-4">
+                <h2>Mi colección</h2>
+          
+            </article>
+        </section>
+
+        <section class="paneles" aria-label="Reproductor de música">
+            <article>
+                <h2>Reproductor</h2>
+                <p id="titulo">Harry Styles - Taste Back</p>
+                <img id="portada" src="resources/images/Harry Styles - Taste Back.jpg" alt="Portada de Harry Styles - Taste Back">
+                <audio id="audio" preload="none" ontimeupdate="actualizar_avance()" onplay="mostrar_reproduccion()" onpause="mostrar_pausa()" onerror="error_archivo()"></audio>
+                <p>
+                    <button id="reproducir" type="button" onclick="evento_reproducir()">Reproducir</button>
+                    <button id="pausar" type="button" onclick="evento_pausar()">Pausar</button>
+                    <button id="detener" type="button" onclick="evento_detener()">Detener</button>
+                </p>
+                <p>
+                    <button id="anterior" type="button" onclick="evento_anterior()">Anterior</button>
+                    <button id="siguiente" type="button" onclick="evento_siguiente()">Siguiente</button>
+                </p>
+                <label for="progreso">Avance de la canción</label>
+                <input id="progreso" type="range" min="0" max="100" value="0" disabled oninput="evento_avance()">
+                <label for="volumen">Volumen</label>
+                <input id="volumen" type="range" min="0" max="1" step="0.1" value="0.5" oninput="evento_volumen()">
+        
+            </article>
+
+            <article>
+                <h2>Visualizador</h2>
+                <p id="visualizador">En pausa</p>
+            
+            </article>
+
+            <article>
+                <h2>Lista de canciones</h2>
+                <label for="canciones">Elige una canción:</label>
+                <select id="canciones" size="10" onchange="evento_cancion()">
+                    <option value="resources/audio/Harry Styles - Taste Back (Official Lyric Video).mp3" data-imagen="resources/images/Harry Styles - Taste Back.jpg">Harry Styles - Taste Back</option>
+                    <option value="resources/audio/Harry Styles - Coming Up Roses Sub Español + Lyrics Video Oficial.mp3" data-imagen="resources/images/Harry Styles - Coming Up Roses.jpg">Harry Styles - Coming Up Roses</option>
+                    <option value="resources/audio/Harry Styles - From the Dining Table (Audio).mp3" data-imagen="resources/images/Harry Styles - From The Dining Table.jpg">Harry Styles - From the Dining Table</option>
+                    <option value="resources/audio/Harry Styles - Woman (Audio).mp3" data-imagen="resources/images/Harry Styles - Woman.jpg">Harry Styles - Woman</option>
+                    <option value="resources/audio/Mon Laferte - Mi Buen Amor (Video Oficial) ft. Enrique Bunbury.mp3" data-imagen="resources/images/Mon Laferte - Mi Buen Amor.jpg">Mon Laferte - Mi Buen Amor</option>
+                    <option value="resources/audio/America - A Horse With No Name (Official Audio).mp3" data-imagen="resources/images/horse with.jpg">America - A Horse With No Name</option>
+                    <option value="resources/audio/Bruno Mars, Anderson .Paak, Silk Sonic - Smokin Out The Window [Official Music Video].mp3" data-imagen="resources/images/Bruno Mars, Anderson .Paak, Silk Sonic - Smokin Out The Window.jpg">Silk Sonic - Smokin Out The Window</option>
+                    <option value="resources/audio/Oscar Maydon x Fuerza Regida - TU BODA.mp3" data-imagen="resources/images/Oscar Maydon x Fuerza Regida - TU BODA.jpg">Oscar Maydon x Fuerza Regida - TU BODA</option>
+                    <option value="resources/audio/Tame Impala - Dracula (Official Video).mp3" data-imagen="resources/images/Tame Impala - Dracula (Official Video).jpg">Tame Impala - Dracula</option>
+                    <option value="resources/audio/Tame Impala - Let It Happen.mp3" data-imagen="resources/images/Tame Impala - Let It Happen.jpg">Tame Impala - Let It Happen</option>
+                </select>
+            </article>
+        </section>
+    </main>
+
+    <footer class="container">
+        <p>AudioStream Web</p>
+    </footer>
+</body>
+</html>
